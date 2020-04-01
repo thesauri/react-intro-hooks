@@ -1,0 +1,467 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <title>reveal.js</title>
+  
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+  
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <style>
+    .grid-3x3 {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+    .grid-3x3 code {
+      display: inline-block !important;
+    }
+    .columns {
+      display: flex;
+    }
+    .columns > div {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>React</h1>
+        <p>Walter Berggren</p>
+        <p>Datanisterna, 2020-04-01</p>
+      </section>
+      <section>
+        <ul>
+          <li><strong>Intro</strong></li>
+          <li>Hooks</li>
+        </ul>
+      </section>
+      <section>
+        <blockquote>
+          <p>A JavaScript library for building user interfaces</p>
+        </blockquote>
+      </section>
+      <section>
+        <div class="grid-3x3">
+          <div>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim>
+                <h1>Rubrik</h1>
+                <p>Häftig text</p>
+              </code>
+            </pre>
+          </div>
+          <div>
+            <pre class="fragment" data-fragment-index="3">
+              <code data-trim>
+                p {
+                  color: "red";
+                }
+              </code>
+            </pre>
+          </div>
+          <div>
+            <pre class="fragment" data-fragment-index="5">
+              <code data-trim>
+                  document.write(
+                    “Boo”
+                  );
+              </code>
+            </pre>
+          </div>
+          <div>HTML</div>
+          <div>CSS</div>
+          <div>JS</div>
+          <div class="fragment" data-fragment-index="2">
+            <h6>Rubrik</h6>
+            <p>Häftig text</p>
+          </div>
+          <div class="fragment" data-fragment-index="4">
+            <h6>Rubrik</h6>
+            <p style="color: red;">Häftig text</p>
+          </div>
+          <div class="fragment" data-fragment-index="6">
+            <h6>Rubrik</h6>
+            <p style="color: red;">Häftig text</p>
+            <span class="fragment" data-fragment-index="7">Boo</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="columns">
+          <div>
+            <pre>
+              <code data-trim>
+                <ul>
+                  <li>Ärtsoppa</li>
+                  <li>Pasta</li>
+                  <li>Toapapper</li>
+                </ul>
+                <input type="text" />
+                <button>Lägg till</button>
+              </code>
+            </pre>
+          </div>
+          <div>
+            <div class="fragment" style="display: flex; flex-direction: column;">
+              <ul>
+                <li>Ärtsoppa</li>
+                <li>Pasta</li>
+                <li>Toapapper</li>
+              </ul>
+              <input type="text" />
+              <button>Lägg till</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <pre>
+          <code style="max-height: unset;" data-trim>
+            <script>
+              function addItem() {
+                // Get the textbox value
+                const newItemText = document.getElementById("input").value;
+
+                // Get a reference to the list
+                const list = document.getElementById("list");
+
+                // Create a new list entry
+                const newListEntry = document.createElement("li");
+                const textNode = document.createTextNode(newItemText);
+                newListEntry.appendChild(textNode)
+
+                // Add the new list entry to the list
+                list.appendChild(newListEntry);
+              }
+            </script>
+
+            <ul id="list">
+              <li>Ärtsoppa</li>
+              <li>Pasta</li>
+              <li>Toapapper</li>
+            </ul>
+            <input id="input" type="text" />
+            <button onclick="addItem()">Lägg till</button>
+          </code>
+        </pre>
+      </section>
+      <section>
+        <div class="columns">
+          <div style="width: 75%">
+            <pre>
+              <code style="max-height: unset;" data-trim>
+                <script>
+                  function addItem() {
+                    // Get the textbox value
+                    const newItemText = document.getElementById("input").value;
+
+                    // Get a reference to the list
+                    const list = document.getElementById("list");
+
+                    // Create a new list entry
+                    const newListEntry = document.createElement("li");
+                    const textNode = document.createTextNode(newItemText);
+                    newListEntry.appendChild(textNode)
+
+                    // Add the new list entry to the list
+                    list.appendChild(newListEntry);
+                  }
+                </script>
+
+                <ul id="list">
+                  <li>Ärtsoppa</li>
+                  <li>Pasta</li>
+                  <li>Toapapper</li>
+                </ul>
+                <input id="input" type="text" />
+                <button onclick="addItem()">Lägg till</button>
+              </code>
+            </pre>
+          </div>
+            <div>
+              <script>
+              function addItem() {
+                // Get the textbox value
+                const newItemText = document.getElementById("input").value;
+
+                // Get a reference to the list
+                const list = document.getElementById("list");
+
+                // Create a new list entry
+                const newListEntry = document.createElement("li");
+                const textNode = document.createTextNode(newItemText);
+                newListEntry.appendChild(textNode)
+
+                // Add the new list entry to the list
+                list.appendChild(newListEntry);
+              }
+            </script>
+
+            <div style="display: flex; flex-direction: column">
+              <ul id="list">
+                <li>Ärtsoppa</li>
+                <li>Pasta</li>
+                <li>Toapapper</li>
+              </ul>
+              <input id="input" type="text" />
+              <button onclick="addItem()">Lägg till</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <img src="images/state-changes.svg" />
+      </section>
+      <section>
+        <img src="images/nicknames.png" />
+      </section>
+      <section>
+        <img src="images/bomb.png" />
+      </section>
+      <section>
+        <pre>
+          <code data-trim>
+            const Todo = () => {
+              return (
+                <div>
+                  <ul id="list">
+                    <li>Ärtsoppa</li>
+                    <li>Pasta</li>
+                    <li>Toapapper</li>
+                  </ul>
+                  <input type="text" />
+                  <button>Lägg till</button>
+                </div>
+              );
+            };
+
+            // Todo() => HTML
+          </code>
+        </pre>
+      </section>
+      <section>
+        <pre>
+          <code style="max-height: unset" data-trim>
+            const TodoItems = ({ items }) => {
+              return (
+                <ul>
+                  { items.map(item => (<li key={item}>{item}</li>)) }
+                </ul>
+              );
+            };
+
+            const Todo = () => {
+              const items = ["Ärtsoppa", "Pasta", "Toapapper"];
+              return (
+                &lt;TodoItems items={items}&gt;
+                <input type="text" />
+                <button>Lägg till</button>
+              );
+            };
+          </code>
+        </pre>
+      </section>
+      <section>
+        <ul>
+          <li>A JavaScript library for building user interfaces</li>
+          <li>Deklararera <i>hur</i> komponenter ska se ut, inte hur de ändras</li>
+        </ul>
+      </section>
+      <section data-background-color="#2980b9">
+        <ul>
+          <li><span style="text-decoration: line-through;">Intro</span></li>
+          <li><strong>Hooks</strong></li>
+        </ul>
+      </section>
+      <section data-background-color="#2980b9">
+        <h2>Problem i React-sfären</h2>
+        <ul>
+          <li>Svårt att återanvända "stateful" logik mellan komponenter</li>
+          <li><strong>Komplicerade komponenter är svåra att greppa</strong></li>
+          <li><strong>"Class"-konceptet är ouintuitivt</strong></li>
+        </ul>
+      </section>
+      <section data-background-color="#2980b9">
+        <h2>Komplicerande komponenter svåra att greppa</h2>
+        <p>Case: Vi vill göra något när användaren trycker på tangentbordet</p>
+      </section>
+      <section id="counter-example" data-background-color="#2980b9">
+        <p id="number">0</p>
+        <script>
+          console.log("running")
+          let _counter = 0;
+          window.addEventListener("keyup", (event) => {
+            if (Reveal.getCurrentSlide().id === "counter-example") {
+              _counter += 1;
+              const counterP = document.getElementById("number");
+              counterP.innerText = _counter;
+            }
+          });
+        </script>
+        <pre>
+          <code style="max-height: 700px; font-size: 20px; line-height: 1;" data-trim>
+            class Counter extends React.Component {
+              constructor(props) {
+                super(props)
+                this.state = {
+                  count: 0
+                }
+                this.incrementCounter = this.incrementCounter.bind(this);
+              }
+              
+              incrementCounter() {
+                this.setState({
+                  count: this.state.count + 1
+                });
+              }
+              
+              componentDidMount() {
+                window.addEventListener("keyup", this.incrementCounter)
+              }
+            
+              componentWillUnmount() {
+                window.removeEventListener("keyup", this.incrementCounter)
+              }
+              
+              render() {
+                return (
+                  <div>
+                    <p>{this.state.count}</p>
+                  </div>
+                )
+              }
+            }
+          </code>
+        </pre>
+      </section>
+      <section data-background-color="#2980b9">
+        <pre>
+          <code style="max-height: 700px; font-size: 20px; line-height: 1;" data-trim>
+            class Counter extends React.Component {
+              constructor(props) {
+                super(props)
+                this.state = {
+                  count: 0
+                }
+                this.incrementCounter = this.incrementCounter.bind(this);
+              }
+              
+              incrementCounter() {
+                this.setState({
+                  count: this.state.count + 1
+                });
+              }
+              
+              componentDidMount() {
+                // fetchLastCount() and update state bla bla bla
+                window.addEventListener("keyup", this.incrementCounter)
+              }
+            
+              componentWillUnmount() {
+                window.removeEventListener("keyup", this.incrementCounter)
+              }
+              
+              render() {
+                return (
+                  <div>
+                    <p>{this.state.count}</p>
+                  </div>
+                )
+              }
+            }
+          </code>
+        </pre>
+      </section>
+      <section data-background-color="#2980b9">
+        <p>Class-konceptet är ointuitivt</p>
+        <pre>
+          <code style="max-height: 700px; font-size: 20px; line-height: 1;" data-trim>
+            class Counter extends React.Component {
+              constructor(props) {
+                super(props)
+                this.state = {
+                  count: 0
+                }
+                // ???
+                this.incrementCounter = this.incrementCounter.bind(this);
+                // ???
+              }
+              
+              incrementCounter() {
+                this.setState({
+                  count: this.state.count + 1
+                });
+              }
+              
+              componentDidMount() {
+                // fetchLastCount() and update state bla bla bla
+                window.addEventListener("keyup", this.incrementCounter)
+              }
+            
+              componentWillUnmount() {
+                window.removeEventListener("keyup", this.incrementCounter)
+              }
+              
+              render() {
+                return (
+                  <div>
+                    <p>{this.state.count}</p>
+                  </div>
+                )
+              }
+            }
+          </code>
+        </pre>
+      </section>
+      <section data-background-color="#27ae60">
+        <script>
+          let _buttonCounterCount = 0;
+          function incrementButtonCounter() {
+            _buttonCounterCount += 1;
+            const buttonCounter = document.getElementById("button-counter");
+            buttonCounter.innerText = _buttonCounterCount;
+          }
+        </script>
+        <p id="button-counter">0</p>
+        <button onclick="incrementButtonCounter()">Click me</button>
+        <p>State utan Class</p>
+        <img src="images/counter.png" />
+      </section>
+    </div>
+  </div>
+  
+  <script src="js/reveal.js"></script>
+  
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      hash: true,
+      dependencies: [
+      { src: 'plugin/markdown/marked.js' },
+      { src: 'plugin/markdown/markdown.js' },
+      { src: 'plugin/highlight/highlight.js' },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+  </script>
+</body>
+</html>
